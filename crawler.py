@@ -13,7 +13,7 @@ def connectDB():
     db = client[DB_NAME]
     return db
 
-def crawl(frontier):
+def crawlerThread(frontier):
     #while frontier is not empty
     while frontier:
         url = frontier.popleft()
@@ -46,4 +46,4 @@ pages = db.pages
 frontier = deque()
 frontier.append("https://www.cpp.edu/sci/computer-science")
 vis = set()
-crawl(frontier)
+crawlerThread(frontier)
